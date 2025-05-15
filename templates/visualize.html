@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visualizer | Architect of Sound</title>
+
+  <!-- общий стиль -->
+  <link rel="stylesheet" href="/static/assets/css/AOS.css" />
+
+  <!-- import-map, чтобы OrbitControls-модули понимали «three» -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+
+  <style>
+    /* локальный стиль только для этой страницы */
+    #threeContainer {
+      width: 100%;
+      height: 600px; /* меняй при желании, 100vh = весь экран */
+      background: #000; /* чтобы видеть границы */
+      display: none;
+      position: relative; /* для корректного позиционирования labelRenderer */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>AOS</h1>
+    <nav>
+      <ul>
+        <li><a href="AOS.html">Home</a></li>
+        <li><a href="visualize.html" class="active">Visualizer</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="intro" id="intro">
+      <h2>Audio Visualizer</h2>
+      <p>Нажми на кнопку, чтобы запустить визуализацию</p>
+      <button id="start-btn" class="btn">Start Visualization</button>
+    </div>
+
+    <!-- сюда Three.js положит canvas -->
+    <div id="threeContainer"></div>
+  </main>
+
+  <footer><p>© 2025 Architect of Sound</p></footer>
+
+  <!-- страница полностью загрузилась → вешаем логику -->
+  <script type="module">
+    import { startVisualizer } from '/static/assets/js/visualizer.js';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const intro = document.getElementById('intro');
+      const btn = document.getElementById('start-btn');
+      const box = document.getElementById('threeContainer');
+
+      btn.addEventListener('click', () => {
+        intro.style.display = 'none';
+        box.style.display = 'block';
+        // Даём браузеру время применить стили и рендерить
+        setTimeout(() => {
+          startVisualizer(box);
+        }, 50);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -258,8 +258,99 @@ footer {
   box-shadow: 0 0 12px rgba(110, 142, 251, 0.2);
 }
 
+.visualizer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
 /* Анимация */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Visualizer page extras ───────────────────────────────────────────── */
+
+/* Intro-блок плавно исчезает */
+.intro.hidden {
+  opacity: 0;
+  transform: translateY(-40px);
+  pointer-events: none;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+/* Кнопка «Start» — тот же акцентный стиль */
+#start-btn {
+  margin-top: 1.4rem;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+#start-btn:hover {
+  background: var(--accent-hover);
+  color: #0a0a0c;
+  box-shadow: 0 0 12px rgba(110, 142, 251, 0.25);
+}
+
+#threeContainer {
+  width: 100%;
+  height: 600px;   /* Оставь */
+  background: rgba(110, 142, 251, 0.2);
+  display: block;  /* не скрываем */
+  position: relative; /* для labelRenderer */
+}
+
+
+#threeContainer.visible{display:block;opacity:1}
+
+
+/* прячем intro плавно */
+.intro.hidden{opacity:0;transform:translateY(-40px);pointer-events:none;transition:.8s}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#threeContainer.visible {
+  display: block;
+}
+
+
+#threeContainer.visible {
+  display: block; /* показываем после старта */
+}
+
+.label {
+  color: white;
+  font-size: 12px;
+  pointer-events: none;
+  user-select: none;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
