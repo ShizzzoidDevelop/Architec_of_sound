@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <title>Visualizer | Architect of Sound</title>
 
-  <!-- общий стиль -->
   <link rel="stylesheet" href="/static/assets/css/AOS.css" />
 
-  <!-- import-map, чтобы OrbitControls-модули понимали «three» -->
   <script type="importmap">
   {
     "imports": {
@@ -17,20 +15,19 @@
   </script>
 
   <style>
-    /* локальный стиль только для этой страницы */
     #threeContainer {
       width: 100%;
-      height: 600px; /* меняй при желании, 100vh = весь экран */
-      background: #000; /* чтобы видеть границы */
+      height: 600px;
+      background: #000;
       display: none;
-      position: relative; /* для корректного позиционирования labelRenderer */
+      position: relative;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>AOS</h1>
+    <h1>Architect of Sound</h1>
     <nav>
       <ul>
         <li><a href="AOS.html">Home</a></li>
@@ -47,13 +44,11 @@
       <button id="start-btn" class="btn">Start Visualization</button>
     </div>
 
-    <!-- сюда Three.js положит canvas -->
     <div id="threeContainer"></div>
   </main>
 
   <footer><p>© 2025 Architect of Sound</p></footer>
 
-  <!-- страница полностью загрузилась → вешаем логику -->
   <script type="module">
     import { startVisualizer } from '/static/assets/js/visualizer.js';
 
@@ -65,7 +60,6 @@
       btn.addEventListener('click', () => {
         intro.style.display = 'none';
         box.style.display = 'block';
-        // Даём браузеру время применить стили и рендерить
         setTimeout(() => {
           startVisualizer(box);
         }, 50);

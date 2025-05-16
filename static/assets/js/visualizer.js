@@ -12,7 +12,6 @@ const gridSize = 5;
 let currentIdx = 0;
 let lerpT = 0;
 
-/* ─────────── траектория ────────── */
 function buildPath() {
   for (let x = -gridSize; x <= gridSize; x++) {
     for (let y = -gridSize; y <= gridSize; y++) {
@@ -29,7 +28,6 @@ function buildPath() {
   }
 }
 
-/* ─────────── запуск ────────── */
 export async function startVisualizer(container) {
   const w = container.clientWidth;
   const h = container.clientHeight;
@@ -72,7 +70,8 @@ export async function startVisualizer(container) {
   );
   group.add(sphere);
 
-  scene.add(new THREE.AmbientLight(0xffffff, 1));
+  const light = new THREE.AmbientLight( 0x404040 ); 
+  scene.add( light );
   const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
   dirLight.position.set(10, 10, 10);
   scene.add(dirLight);
@@ -103,16 +102,14 @@ export async function startVisualizer(container) {
   animate();
 }
 
-/* ─────────── helpers ────────── */
 function band(start, end) {
   let sum = 0;
   for (let i = start; i <= end; i++) {
     sum += dataArray[i] || 0;
   }
-  return sum / (end - start + 1) / 255; // нормализация 0..1
+  return sum / (end - start + 1) / 255;
 }
 
-/* ─────────── анимация ────────── */
 let targetPosition = new THREE.Vector3();
 
 function animate() {
@@ -122,18 +119,16 @@ function animate() {
 
   analyser.getByteFrequencyData(dataArray);
 
-  const lowFreq  = band(0, 4);     // X
-  const midFreq  = band(5, 24);    // Y
-  const highFreq = band(25, 63);   // Z
+  const lowFreq  = band(0, 4);
+  const midFreq  = band(5, 24);
+  const highFreq = band(25, 63);
 
-  // Задаём цель
   targetPosition.set(
-    lowFreq * 50,
-    midFreq * 50,
-    highFreq * 50,
+    lowFreq * 75,
+    midFreq * 75,
+    highFreq * 75,
   );
 
-  // Плавный переход с lerp (коэффициент 0.1 - скорость сглаживания)
   sphere.position.lerp(targetPosition, 0.1);
 
   group.rotation.y += 0.002;
