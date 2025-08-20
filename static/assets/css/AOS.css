@@ -354,3 +354,446 @@ html, body {
 main {
   flex: 1;
 }
+
+/* Новые стили для главной страницы */
+.subtitle {
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  max-width: 1200px;
+}
+
+.feature-card {
+  background: rgba(19, 19, 22, 0.6);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(110, 142, 251, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(110, 142, 251, 0.5);
+  box-shadow: 0 10px 30px rgba(110, 142, 251, 0.15);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-card h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.cta-section {
+  text-align: center;
+  margin: 4rem 0;
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(110, 142, 251, 0.1) 0%, rgba(255, 107, 157, 0.1) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(110, 142, 251, 0.3);
+}
+
+.cta-section h3 {
+  color: var(--text);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.cta-section p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: #0a0a0c;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(110, 142, 251, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(110, 142, 251, 0.4);
+}
+
+.tech-stack {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.tech-stack h3 {
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.tech-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.tech-item {
+  background: rgba(110, 142, 251, 0.1);
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(110, 142, 251, 0.3);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+  background: rgba(110, 142, 251, 0.2);
+  border-color: rgba(110, 142, 251, 0.5);
+  transform: scale(1.05);
+}
+
+/* Улучшения для существующих элементов */
+.intro {
+  text-align: center;
+  max-width: 1200px;
+  padding: 4rem 2rem;
+  background: rgba(19, 19, 22, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 0 60px rgba(110, 142, 251, 0.1);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1.5s ease-out;
+}
+
+.intro h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .intro {
+    padding: 2rem 1rem;
+  }
+  
+  .intro h2 {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .cta-section {
+    padding: 2rem 1rem;
+  }
+  
+  .cta-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .tech-items {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.feature-card {
+  animation: fadeIn 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+.cta-section {
+  animation: fadeIn 1s ease-out 0.5s both;
+}
+
+.tech-stack {
+  animation: fadeIn 1s ease-out 0.7s both;
+}
+
+/* Стили для страницы About */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-section {
+  background: rgba(19, 19, 22, 0.6);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(110, 142, 251, 0.2);
+  backdrop-filter: blur(10px);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.about-section:hover {
+  border-color: rgba(110, 142, 251, 0.4);
+  box-shadow: 0 5px 20px rgba(110, 142, 251, 0.1);
+}
+
+.about-section h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.about-section p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Стили для страницы Contact */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-info h3 {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.contact-info p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-method {
+  background: rgba(19, 19, 22, 0.4);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(110, 142, 251, 0.2);
+}
+
+.contact-method h4 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.contact-method p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-form {
+  background: rgba(19, 19, 22, 0.6);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(110, 142, 251, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.contact-form h3 {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(10, 10, 12, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: #0a0a0c;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(110, 142, 251, 0.3);
+}
+
+.social-links {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.social-links h3 {
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.social-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(19, 19, 22, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(110, 142, 251, 0.2);
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.social-link:hover {
+  border-color: rgba(110, 142, 251, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(110, 142, 251, 0.15);
+}
+
+.social-icon {
+  font-size: 2rem;
+}
+
+.social-link span:last-child {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Адаптивность для страниц About и Contact */
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-section {
+    padding: 1.5rem;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .social-grid {
+    gap: 1rem;
+  }
+  
+  .social-link {
+    min-width: 100px;
+    padding: 1rem;
+  }
+}

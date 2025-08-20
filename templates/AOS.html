@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>About | Architect of Sound</title>
+  <title>Architecture of Sound - Главная</title>
   <link rel="stylesheet" href="/static/assets/css/AOS.css">
-  <script src="/static/assets/js/visualizer.js" type="module"></script>
-  
 </head>
 <body>
   <header>
-    <h1>Architect of Sound</h1>
+    <h1>Architecture of Sound</h1>
     <nav>
       <ul>
-        <li><a href="AOS.html">Home</a></li>
+        <li><a href="AOS.html" class="active">Home</a></li>
         <li><a href="visualize.html">Visualizer</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -21,16 +20,55 @@
 
   <main>
     <div class="intro">
-      <h2>About the Project</h2>
-      <p>
-        Architect of Sound — это интерактивная визуализация аудио, где каждая звуковая волна становится элементом искусства. 
-        Проект вдохновлён природой, технологией и синестезией. 
-      </p>
+      <h2>🎵 Архитектура Звука</h2>
+      <p class="subtitle">Простая и элегантная аудио-визуализация в 3D пространстве</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Одна Сфера</h3>
+          <p>Единственная сфера, которая скачет по осям X, Y, Z в зависимости от свойств звука</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Три Оси</h3>
+          <p>X ось - низкие частоты (бас), Y ось - средние частоты, Z ось - высокие частоты</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Следы и Данные</h3>
+          <p>Сфера оставляет следы и создает квадратики с данными звука в моменты пиков</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>Вращение Пространства</h3>
+          <p>Пространство плавно вращается, а вы можете управлять камерой мышкой</p>
+        </div>
+      </div>
+      
+      <div class="cta-section">
+        <h3>Готов увидеть, как звук становится движением?</h3>
+        <p>Каждая частота, каждый ритм превращается в координату в 3D пространстве. Создавай свои звуковые траектории!</p>
+        <a href="visualize.html" class="cta-button">🚀 Запустить Визуализацию</a>
+      </div>
+      
+      <div class="tech-stack">
+        <h3>Технологический стек</h3>
+        <div class="tech-items">
+          <span class="tech-item">Three.js</span>
+          <span class="tech-item">WebGL</span>
+          <span class="tech-item">Web Audio API</span>
+          <span class="tech-item">FastAPI</span>
+        </div>
+      </div>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 Architect of Sound</p>
+    <p>© 2025 Architecture of Sound - Мир, где звук становится движением! 🎨</p>
   </footer>
 </body>
 </html>

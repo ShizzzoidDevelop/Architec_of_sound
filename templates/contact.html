@@ -2,35 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact | Architect of Sound</title>
+  <title>Contact | Architecture of Sound</title>
   <link rel="stylesheet" href="/static/assets/css/AOS.css">
-  <script src="/static/assets/js/visualizer.js" type="module"></script>
-  
 </head>
 <body>
   <header>
-    <h1>Architect of Sound</h1>
+    <h1>Architecture of Sound</h1>
     <nav>
       <ul>
         <li><a href="AOS.html">Home</a></li>
         <li><a href="visualize.html">Visualizer</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <div class="intro">
-      <h2>Contact</h2>
-      <p>Вопросы? Идеи? Предложения, которыми можно поделиться? Свяжитесь с нами.</p>
-      <p><a href="mailto:taskindevelop@gmail.com">taskindevelop@gmail.com</a></p>
-      <p><a href="mailto:anatolyj.voronkov@yandex.ru">anatolyj.voronkov@yandex.ru</a></p>
-      <p><a href="mailto:mirhonmuzaffarov@yandex.ru">mirhonmuzaffarov@yandex.ru</a></p>
+    <div class="section">
+      <h2 class="page-title">Свяжитесь с Нами</h2>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>💬 Давайте Обсудим</h3>
+          <p>
+            У вас есть идеи по улучшению проекта? Хотите поделиться своими впечатлениями? 
+            Или может быть, у вас есть предложения по сотрудничеству? Мы будем рады услышать от вас!
+          </p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <h4>🎨 Вклад в Проект</h4>
+              <p>
+                Проект открыт для вкладов! Если у вас есть идеи по улучшению, создавайте issues 
+                и pull requests на GitHub.
+              </p>
+            </div>
+            
+            <div class="contact-method">
+              <h4>🚀 Предложения</h4>
+              <p>
+                Расскажите нам о новых функциях, которые вы хотели бы видеть в проекте. 
+                Мы всегда открыты для новых идей!
+              </p>
+            </div>
+            
+            <div class="contact-method">
+              <h4>🐛 Сообщения об Ошибках</h4>
+              <p>
+                Нашли баг? Сообщите нам об этом, и мы исправим его как можно скорее.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>📝 Форма Обратной Связи</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Тема</label>
+              <select id="subject" name="subject" required>
+                <option value="">Выберите тему</option>
+                <option value="feature">Предложение новой функции</option>
+                <option value="bug">Сообщение об ошибке</option>
+                <option value="improvement">Улучшение проекта</option>
+                <option value="collaboration">Сотрудничество</option>
+                <option value="other">Другое</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Сообщение</label>
+              <textarea id="message" name="message" rows="6" required 
+                        placeholder="Расскажите нам подробнее о вашем предложении или вопросе..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">📤 Отправить Сообщение</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <h3>🔗 Мы в Соцсетях</h3>
+        <div class="social-grid">
+          <a href="#" class="social-link">
+            <span class="social-icon">🐙</span>
+            <span>GitHub</span>
+          </a>
+          <a href="#" class="social-link">
+            <span class="social-icon">🐦</span>
+            <span>Twitter</span>
+          </a>
+          <a href="#" class="social-link">
+            <span class="social-icon">📷</span>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-link">
+            <span class="social-icon">📺</span>
+            <span>YouTube</span>
+          </a>
+        </div>
+      </div>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 Architect of Sound</p>
+    <p>© 2025 Architecture of Sound - Погрузись в мир звуковых волн и шейдеров! 🎨</p>
   </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Простая валидация
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      if (!name || !email || !subject || !message) {
+        alert('Пожалуйста, заполните все поля формы.');
+        return;
+      }
+      
+      // Здесь можно добавить отправку на сервер
+      alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+      
+      // Очищаем форму
+      this.reset();
+    });
+  </script>
 </body>
 </html>
